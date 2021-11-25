@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>for문</title>
+  <style>
+    div {
+      display : inline-block;
+      width : 150px;
+      padding : 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>16개의 랜덤한 색 만들기</h1>
+  <hr>
+	<script>
+    function random(min,max){
+      return Math.floor(Math.random()*(max-min+1))+min;
+    }
+    for(var i=0;i<16;i++){
+      var colorstring = 'rgb('+random(0,255)+","+random(0,255)+","+random(0,255)+')';
+    document.write('<div style="background-color:'+colorstring+'">'+colorstring+"</div>");
+    }
+	</script>
+</body>
+</html>
