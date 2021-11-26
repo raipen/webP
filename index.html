@@ -15,8 +15,6 @@
       position: relative;
     }
     .ball{
-      width: 10px;
-      height: 10px;
       transition: 1s;
       position: absolute;
       border-radius: 100%;
@@ -29,12 +27,13 @@
      }
       $(document).ready(function() {
         $('#main').on("click",function(e){
-          x = event.pageX;
-          y = event.pageY;
-          var colorstring = 'rgb('+random(200,255)+","+random(0,255)+","+random(0,30)+')';
-          $('#main').append('<span class="ball" style="top: '+y+'px;left:'+x+'px;background-color: '+colorstring+';"></span>');
+          var colorstring = 'rgb('+random(220,255)+","+random(0,255)+","+random(0,30)+')';
           var ran = random(50,120);
-          setTimeout(function(){$('.ball').last().css({"transform": "scale("+ran/10+")"});},30);
+          x = event.pageX-ran/2;
+          y = event.pageY-ran/2;
+          $('#main').append('<span class="ball" style="top: '+y+'px;left:'+x+'px;background-color: '+colorstring+';transform: scale(0)"></span>');
+          $('.ball').last().css({"width": ran,"height":ran});
+          setTimeout(function(){$('.ball').last().css({"transform": "scale(1)"});},30);
         });
       });
     </script>
