@@ -20,7 +20,7 @@
       background-color: green;
     }
     .ball{
-      transition: 1s;
+      transition: 0.5s ease-in-out;
       position: absolute;
       border-radius: 100%;
     }
@@ -83,8 +83,8 @@
           y = event.pageY-ran/2;
           $('#main').append('<span class="ball" style="top: '+y+'px;left:'+x+'px;background-color: '+colorstring+';transform: scale(0)"></span>');
           $('.ball').last().css({"width": ran,"height":ran});
-          $('.ball').last().addClass('swing');
           setTimeout(function(){$('.ball').last().css({"transform": "scale(1)"});},30);
+          setTimeout(function(){$('.ball').last().addClass('swing');},500);
           dropitem();
         });
 
@@ -118,7 +118,7 @@
         if(random(2,10)<$('.ball').length){
           console.log("drop");
           var eqeq=random(0,$('.ball').length-2);
-          $('.ball').eq(eqeq).css({"top": "calc(100% + 100px)"});
+          $('.ball').eq(eqeq).css({"transition":"1s ease-out","top": "calc(100% + 100px)"});
           setTimeout(function(){
             $('.ball').eq(eqeq).remove();
           },1000);
