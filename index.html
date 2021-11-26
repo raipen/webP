@@ -74,6 +74,7 @@
      }
 
      var isDrag = false;
+     var isDraged = false;
       $(document).ready(function() {
         $('#main').on("click",function(e){
           var colorstring = 'rgb('+random(220,255)+","+random(0,255)+","+random(0,30)+')';
@@ -84,6 +85,7 @@
           $('.ball').last().css({"width": ran,"height":ran});
           $('.ball').last().addClass('swing');
           setTimeout(function(){$('.ball').last().css({"transform": "scale(1)"});},30);
+          dropitem();
         });
 
         $('#main').on("mousedown",function(){
@@ -92,21 +94,36 @@
         });
         $('#main').on("mouseup",function(){
           console.log("mouseup");
-          setTimeout(function(){
-            $('#main').removeClass("strong-swing");
-          },1250);
           isDrag = false;
+          if(isDraged){
+            isDraged = false;
+            setTimeout(function(){
+              dropitem();
+              $('#main').removeClass("strong-swing");
+            },1250);
+          }
         });
         $('#main').on("mousemove",function(){
           if(isDrag){
             console.log("mousemove");
             isDrag = false;
+            isDraged = true;
             $('#main').addClass("strong-swing");
           }
         });
 
-
       });
+
+      function dropitem(){
+        if(random(2,10)<$('.ball').length){
+          console.log("drop");
+          var eqeq=random(0,$('.ball').length-2);
+          $('.ball').eq(eqeq).css({"top": "calc(100% + 100px)"});
+          setTimeout(function(){
+            $('.ball').eq(eqeq).remove();
+          },1000);
+        }
+      }
     </script>
   </head>
   <body>
