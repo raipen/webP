@@ -6,18 +6,64 @@
     <title>크리스마스</title>
     <style>
     html,body{
-      margin:0;
+      margin:0px;
       height:100%;
+    }
+    body{
+      background-color: green;
+      overflow: hidden;
     }
     #main{
       width: 100%;
       height: 100%;
       position: relative;
+      background-color: green;
     }
     .ball{
       transition: 1s;
       position: absolute;
       border-radius: 100%;
+    }
+    .swing {
+    animation: swing ease-in-out 1s infinite alternate;
+    transform-origin: center -40px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    z-index: 1;
+    }
+    .swing:after{
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 25px;
+      top: -40px;
+      left: 50%;
+      z-index: 5;
+      border-radius: 50%;
+      border:1px solid #999;
+      transform:translateX(-50%);
+    }
+    .swing:before{
+      content: '';
+      position: absolute;
+      width: 1px; height: 15px;
+      border-left: 1px solid #999;
+      top: -14px; left: 50%;
+      transform:translateX(-50%);
+      z-index: 0;
+    }
+    .strong-swing {
+      animation: gmsemf ease-in-out 0.5s infinite alternate;
+    }
+
+    @keyframes swing {
+        0% { transform: rotate(3deg); }
+        100% { transform: rotate(-3deg); }
+    }
+    @keyframes gmsemf {
+        0% { transform: translateX(0px); }
+        33% { transform: translateX(-10px); }
+        66% { transform: translateX(10px); }
+        100% { transform: translateX(0px); }
     }
     </style>
     <script src="jquery-3.2.0.min.js"></script>
@@ -25,6 +71,8 @@
       function random(min,max){
        return Math.floor(Math.random()*(max-min+1))+min;
      }
+
+     var isDrag = false;
       $(document).ready(function() {
         $('#main').on("click",function(e){
           var colorstring = 'rgb('+random(220,255)+","+random(0,255)+","+random(0,30)+')';
@@ -33,9 +81,35 @@
           y = event.pageY-ran/2;
           $('#main').append('<span class="ball" style="top: '+y+'px;left:'+x+'px;background-color: '+colorstring+';transform: scale(0)"></span>');
           $('.ball').last().css({"width": ran,"height":ran});
+          $('.ball').last().addClass('swing');
           setTimeout(function(){$('.ball').last().css({"transform": "scale(1)"});},30);
         });
+
+        $('#main').on("mousedown",function(){
+          isDrag = true;
+          console.log("mousedown");
+        });
+        $('#main').on("mouseup",function(){
+          console.log("mouseup");
+          setTimeout(function(){
+            $('#main').removeClass("strong-swing");
+          },1250);
+          isDrag = false;
+        });
+        $('#main').on("mousemove",function(){
+          if(isDrag){
+            console.log("mousemove");
+            isDrag = false;
+            $('#main').addClass("strong-swing");
+          }
+        });
+
+
       });
+
+      function dropitem(){
+        $('.ball').eq(random(0,$('.ball').length)).css({"width": ran,"height":ran});
+      }
     </script>
   </head>
   <body>
