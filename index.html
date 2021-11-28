@@ -12,19 +12,46 @@
     body{
       background-color: green;
       overflow: hidden;
+      position: relative;
     }
-    #main{
+    .main{
       width: 100%;
       height: 100%;
-      position: relative;
+      position: absolute;
+    }
+    #main1{
       background-color: green;
+    }
+    #main2{
+      background: linear-gradient(to bottom, #000, #000010,#000030);
+    }
+    #main3{
+      background: linear-gradient(to right,#be4825 50%, #cf6f28 50%);
+      background-size: 50px 100%;
+    }
+    #main0{
+      background-color: #ffffff;
+    }
+    .disable{
+      display: none;
     }
     .ball{
       transition: 0.5s ease-in-out;
       position: absolute;
       border-radius: 100%;
     }
-
+    #button{
+      position: fixed;
+      z-index: 1000;
+      width:100px;
+      height: 100px;
+      background: linear-gradient(to bottom, #000, #000010,rgba(0,0,50,1),rgba(0,0,70,1));
+      border-radius: 100%;
+      bottom:50px;
+      left:50%;
+      transform:translateX(-50%);
+      cursor:pointer;
+    }
     .swing {
     animation: swing ease-in-out 1s infinite alternate;
     transform-origin: center -40px;
@@ -76,39 +103,39 @@
      var isDrag = false;
      var isDraged = false;
       $(document).ready(function() {
-        $('#main').on("click",function(e){
+        $('#main1').on("click",function(e){
           var colorstring = 'rgb('+random(220,255)+","+random(0,255)+","+random(0,30)+')';
           var ran = random(50,120);
           x = event.pageX-ran/2;
           y = event.pageY-ran/2;
-          $('#main').append('<span class="ball" style="top: '+y+'px;left:'+x+'px;background-color: '+colorstring+';transform: scale(0)"></span>');
+          $('#main1').append('<span class="ball" style="top: '+y+'px;left:'+x+'px;background-color: '+colorstring+';transform: scale(0)"></span>');
           $('.ball').last().css({"width": ran,"height":ran});
-          setTimeout(function(){$('.ball').last().css({"transform": "scale(1)"});},30);
-          setTimeout(function(){$('.ball').last().addClass('swing');},500);
-          dropitem();
+            setTimeout(function(){$('.ball').last().css({"transform": "scale(1)"});},30);
+            setTimeout(function(){$('.ball').last().addClass('swing');},500);
+            dropitem();
         });
 
-        $('#main').on("mousedown",function(){
+        $('#main1').on("mousedown",function(){
           isDrag = true;
           console.log("mousedown");
         });
-        $('#main').on("mouseup",function(){
+        $('#main1').on("mouseup",function(){
           console.log("mouseup");
           isDrag = false;
           if(isDraged){
             isDraged = false;
             setTimeout(function(){
               dropitem();
-              $('#main').removeClass("strong-swing");
+              $('#main1').removeClass("strong-swing");
             },1250);
           }
         });
-        $('#main').on("mousemove",function(){
+        $('#main1').on("mousemove",function(){
           if(isDrag){
             console.log("mousemove");
             isDrag = false;
             isDraged = true;
-            $('#main').addClass("strong-swing");
+            $('#main1').addClass("strong-swing");
           }
         });
 
@@ -124,10 +151,31 @@
           },1000);
         }
       }
+      var curMain = 1;
+      var nextMain = ["linear-gradient(to bottom, #008000, #004100)",
+        "linear-gradient(to bottom, #000, #000010,rgba(0,0,50,1),rgba(0,0,70,1))",
+        "linear-gradient(to right, #be4825 50%, #cf6f28 50%) 100%/30px 100%","#fff"];
+      function changeMain(){
+        $('.main').addClass("disable");
+        curMain = (curMain+1)%4;
+        $('#main'+curMain).removeClass("disable");
+        $("#button").css({"background":nextMain[curMain]});
+      }
     </script>
   </head>
   <body>
-    <div id="main">
+    <div id="main1" class="main">
+    </div>
+    <div id="main2" class="main disable">
+      산타
+    </div>
+    <div id="main3" class="main disable">
+      상자
+    </div>
+    <div id="main0" class="main disable">
+      소개
+    </div>
+    <div id="button" onclick="changeMain();">
     </div>
   </body>
 </html>
