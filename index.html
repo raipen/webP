@@ -82,7 +82,10 @@
     .strong-swing {
       animation: gmsemf ease-in-out 0.5s infinite alternate;
     }
-
+    .star{
+      position: absolute;
+      background: url("images/star.png");
+    }
     @keyframes swing {
         0% { transform: rotate(3deg); }
         100% { transform: rotate(-3deg); }
@@ -95,76 +98,30 @@
     }
     </style>
     <script src="jquery-3.2.0.min.js"></script>
+    <script src="page1.js"></script>
+    <script src="change_button.js"></script>
     <script type="text/javascript">
-      function random(min,max){
-       return Math.floor(Math.random()*(max-min+1))+min;
-     }
-
-     var isDrag = false;
-     var isDraged = false;
+      var init_main = [init_main1,init_main1,init_main2,init_main2];
       $(document).ready(function() {
-        $('#main1').on("click",function(e){
-          var colorstring = 'rgb('+random(220,255)+","+random(0,255)+","+random(0,30)+')';
-          var ran = random(50,120);
-          x = event.pageX-ran/2;
-          y = event.pageY-ran/2;
-          $('#main1').append('<span class="ball" style="top: '+y+'px;left:'+x+'px;background-color: '+colorstring+';transform: scale(0)"></span>');
-          $('.ball').last().css({"width": ran,"height":ran});
-            setTimeout(function(){$('.ball').last().css({"transform": "scale(1)"});},30);
-            setTimeout(function(){$('.ball').last().addClass('swing');},500);
-            dropitem();
-        });
-
-        $('#main1').on("mousedown",function(){
-          isDrag = true;
-          console.log("mousedown");
-        });
-        $('#main1').on("mouseup",function(){
-          console.log("mouseup");
-          isDrag = false;
-          if(isDraged){
-            isDraged = false;
-            setTimeout(function(){
-              dropitem();
-              $('#main1').removeClass("strong-swing");
-            },1250);
-          }
-        });
-        $('#main1').on("mousemove",function(){
-          if(isDrag){
-            console.log("mousemove");
-            isDrag = false;
-            isDraged = true;
-            $('#main1').addClass("strong-swing");
-          }
-        });
-
+        console.log("a");
+        changeMain();
       });
 
-      function dropitem(){
-        if(random(2,10)<$('.ball').length){
-          console.log("drop");
-          var eqeq=random(0,$('.ball').length-2);
-          $('.ball').eq(eqeq).css({"transition":"1s ease-out","top": "calc(100% + 100px)"});
-          setTimeout(function(){
-            $('.ball').eq(eqeq).remove();
-          },1000);
-        }
+      function init_main2(){
+        console.log("Asdf");
+        twinkle_star();
       }
-      var curMain = 1;
-      var nextMain = ["linear-gradient(to bottom, #008000, #004100)",
-        "linear-gradient(to bottom, #000, #000010,rgba(0,0,50,1),rgba(0,0,70,1))",
-        "linear-gradient(to right, #be4825 50%, #cf6f28 50%) 100%/30px 100%","#fff"];
-      function changeMain(){
-        $('.main').addClass("disable");
-        curMain = (curMain+1)%4;
-        $('#main'+curMain).removeClass("disable");
-        $("#button").css({"background":nextMain[curMain]});
+
+      function twinkle_star(){
+
       }
     </script>
   </head>
   <body>
     <div id="main1" class="main">
+      <div class="star">
+
+      </div>
     </div>
     <div id="main2" class="main disable">
       산타
