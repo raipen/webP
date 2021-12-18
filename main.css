@@ -1,0 +1,29 @@
+html,body{
+  margin:0px;
+  height:100%;
+}
+body{
+  background-color: green;
+  overflow: hidden;
+  position: relative;
+}
+.main{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+#button{
+  position: fixed;
+  z-index: 1000;
+  width:100px;
+  height: 100px;
+  background: linear-gradient(to bottom, #000, #000010,rgba(0,0,50,1),rgba(0,0,70,1));
+  border-radius: 100%;
+  bottom:50px;
+  left:50%;
+  transform:translateX(-50%);
+  cursor:pointer;
+}
+.disable{
+  display: none;
+}

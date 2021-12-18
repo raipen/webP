@@ -4,117 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>크리스마스</title>
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+    <link rel="stylesheet" type="text/css" href="page1.css"/>
+    <link rel="stylesheet" type="text/css" href="page2.css"/>
+    <link rel="stylesheet" type="text/css" href="page3.css"/>
+    <link rel="stylesheet" type="text/css" href="page4.css"/>
     <style>
-    html,body{
-      margin:0px;
-      height:100%;
-    }
-    body{
-      background-color: green;
-      overflow: hidden;
-      position: relative;
-    }
-    .main{
-      width: 100%;
-      height: 100%;
-      position: absolute;
-    }
-    #main1{
-      background-color: green;
-    }
-    #main2{
-      background: linear-gradient(to bottom, #000, #000010,#000030);
-    }
-    #main3{
-      background: linear-gradient(to right,#be4825 50%, #cf6f28 50%);
-      background-size: 50px 100%;
-    }
-    #main0{
-      background-color: #ffffff;
-    }
-    .disable{
-      display: none;
-    }
-    .ball{
-      transition: 0.5s ease-in-out;
-      position: absolute;
-      border-radius: 100%;
-    }
-    #button{
-      position: fixed;
-      z-index: 1000;
-      width:100px;
-      height: 100px;
-      background: linear-gradient(to bottom, #000, #000010,rgba(0,0,50,1),rgba(0,0,70,1));
-      border-radius: 100%;
-      bottom:50px;
-      left:50%;
-      transform:translateX(-50%);
-      cursor:pointer;
-    }
-    .swing {
-    animation: swing ease-in-out 1s infinite alternate;
-    transform-origin: center -40px;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-    z-index: 1;
-    }
-    .swing:after{
-      content: '';
-      position: absolute;
-      width: 15px;
-      height: 25px;
-      top: -40px;
-      left: 50%;
-      z-index: 5;
-      border-radius: 50%;
-      border:1px solid #999;
-      transform:translateX(-50%);
-    }
-    .swing:before{
-      content: '';
-      position: absolute;
-      width: 1px; height: 15px;
-      border-left: 1px solid #999;
-      top: -14px; left: 50%;
-      transform:translateX(-50%);
-      z-index: 0;
-    }
-    .strong-swing {
-      animation: gmsemf ease-in-out 0.5s infinite alternate;
-    }
-    .star{
-      position: absolute;
-      background: url("images/star.png");
-    }
-    @keyframes swing {
-        0% { transform: rotate(3deg); }
-        100% { transform: rotate(-3deg); }
-    }
-    @keyframes gmsemf {
-        0% { transform: translateX(0px); }
-        33% { transform: translateX(-10px); }
-        66% { transform: translateX(10px); }
-        100% { transform: translateX(0px); }
-    }
+
     </style>
     <script src="jquery-3.2.0.min.js"></script>
     <script src="page1.js"></script>
+    <script src="page2.js"></script>
+    <script src="page3.js"></script>
+    <script src="page4.js"></script>
     <script src="change_button.js"></script>
     <script type="text/javascript">
-      var init_main = [init_main1,init_main1,init_main2,init_main2];
       $(document).ready(function() {
-        console.log("a");
         changeMain();
+        init_main1();
+        init_main2();
+        init_main3();
+        init_main4();
       });
-
-      function init_main2(){
-        console.log("Asdf");
-        twinkle_star();
-      }
-
-      function twinkle_star(){
-
-      }
     </script>
   </head>
   <body>

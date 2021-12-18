@@ -1,0 +1,7 @@
+#main2{
+  background: linear-gradient(to bottom, #000, #000010,#000030);
+}
+.star{
+  position: absolute;
+  background: url("images/star.png");
+}
