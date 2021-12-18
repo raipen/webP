@@ -4,4 +4,24 @@
 .star{
   position: absolute;
   background: url("images/star.png");
+  background-size: cover;
+  transition:0.5s;
+  animation: twinkle ease-in-out 1s infinite alternate;
+}
+.shadow_yellow{
+  filter: drop-shadow(0px 0px 30px #f0ff00);
+}
+.shadow_skyblue{
+  filter: drop-shadow(0px 0px 30px #00c2ff);
+}
+.shadow_blue{
+  filter: drop-shadow(0px 0px 30px #3700e7);
+}
+.shadow_purple{
+  filter: drop-shadow(0px 0px 30px #cb49c1);
+}
+
+@keyframes twinkle {
+    0% { transform: scale(0.5) rotate(3deg); }
+    100% { transform: scale(1) rotate(-3deg); }
 }
