@@ -1,6 +1,19 @@
 #main1{
   background-color: green;
 }
+.tree_back{
+  position: absolute;
+  width:110%;
+  height:37.5%;
+  background-size:cover;
+  left:50%;
+  background-position-y: bottom;
+  animation: wind ease-in-out 1s infinite alternate;
+}
+@keyframes wind {
+    0% { transform: translateX(-50%) skewx(3deg); }
+    100% { transform: translateX(-50%) skewx(-3deg); }
+}
 .ball{
   transition: 0.5s ease-in-out;
   position: absolute;

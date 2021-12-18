@@ -37,6 +37,14 @@ function loop_main1(){
 
 }
 
+function make_background(){
+  for(var i=5;i>0;i--){
+    console.log("sadf");
+    $('#main1').append('<div class="tree_back" style="background-image:url(images/트리'+i+'.png); top:'+(25*(i==1?i-1:i-1.5))+'%"></div>');
+  }
+  $('.tree_back').last().css({"height":"25%"});
+}
+
 function add_item(){
   var colorstring = 'rgb('+random(220,255)+","+random(0,255)+","+random(0,30)+')';
   var ran = random(50,120);
