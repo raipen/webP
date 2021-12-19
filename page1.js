@@ -25,8 +25,8 @@ function init_main1(){
       },1250);
     }
     else{
-      $('.ball').last().css({"transform": "scale(1)"});
-      $('.ball').last().addClass('swing');
+      $('.deco').last().css({"transform": "scale(1)"});
+      $('.deco').last().addClass('swing');
       add_item();
       drop_item(2);
     }

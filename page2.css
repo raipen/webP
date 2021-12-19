@@ -6,6 +6,7 @@
   background-size: cover;
   animation: move3 ease-in-out 10s 1 normal;
   filter: drop-shadow(0px 0px 30px #ffffff);
+  opacity: 0;
 }
 @keyframes move1 {
     0% {opacity: 0; left: 0%; transform: translate(0,500px) rotate(-45deg); }
