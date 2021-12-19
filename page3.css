@@ -38,7 +38,7 @@
   font-size:100px;
 }
 .contain2::before{
-  content:"Christmas";
+  content:"Christmas!";
   color:#fff;
   position:absolute;
   top:0;
