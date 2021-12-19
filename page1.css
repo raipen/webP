@@ -4,7 +4,7 @@
 .tree_back{
   position: absolute;
   width:110%;
-  height:37.5%;
+  height:40%;
   background-size:cover;
   left:50%;
   background-position-y: bottom;
@@ -19,10 +19,28 @@
   position: absolute;
   border-radius: 100%;
 }
+.LED{
+  transition: 0.5s ease-in-out;
+  position: absolute;
+  border-radius: 100%;
+  background-image: url(images/star.png);
+}
+.cane{
+  transition: 0.5s ease-in-out;
+  position: absolute;
+  background-image: url(images/cane.png);
+  background-size: cover;
+}
+.snow{
+  transition: 0.5s ease-in-out;
+  position: absolute;
+  background-image: url(images/snow1.png);
+  background-size: cover;
+}
 .swing {
 animation: swing ease-in-out 1s infinite alternate;
 transform-origin: center -40px;
-box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5));
 z-index: 1;
 }
 .swing:after{

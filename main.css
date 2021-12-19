@@ -19,9 +19,9 @@ body{
   height: 100px;
   background: linear-gradient(to bottom, #000, #000010,rgba(0,0,50,1),rgba(0,0,70,1));
   border-radius: 100%;
-  bottom:50px;
-  left:50%;
-  transform:translateX(-50%);
+  top:50%;
+  right: -50px;
+  transform:translateY(-50%);
   cursor:pointer;
 }
 .disable{
