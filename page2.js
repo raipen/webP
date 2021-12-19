@@ -1,7 +1,10 @@
 function init_main2(){
   $('#main2').on("click",function(){
-    remove_santa();
-    add_santa();
+    var dur = random(7,12);
+    add_santa(dur);
+    setTimeout(function(){
+      remove_santa();
+    },dur*1000);
   });
 }
 
@@ -16,11 +19,27 @@ function loop_main2(){
 }
 
 function remove_santa(){
-
+  console.log("delete santa");
+  $('.santa').first().remove();
 }
 
-function add_santa(){
-
+function add_santa(dur){
+  console.log("santa");
+  var x = event.pageX;
+  var y = event.pageY;
+  console.log("santa");
+  var size = random(20,35)/100;
+  var dir_type = ["normal","reverse"];
+  var dir = dir_type[random(0,1)];
+  $('#main2').append('<div class="santa" style="top: '+y+'px;left:'+x+'px;"></div>');
+  $('.santa').last().css({
+    "background-image": 'url("images/santa_'+dir+'.png")',
+    "width": (window.innerWidth*size)+"px",
+    "height":(window.innerWidth*size*234/626)+"px",
+    "animation-name":"move"+random(1,3),
+    "animation-duration": dur+"s",
+    "animation-direction": dir
+  });
 }
 
 

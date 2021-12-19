@@ -19,12 +19,6 @@
   position: absolute;
   border-radius: 100%;
 }
-.LED{
-  transition: 0.5s ease-in-out;
-  position: absolute;
-  border-radius: 100%;
-  background-image: url(images/star.png);
-}
 .cane{
   transition: 0.5s ease-in-out;
   position: absolute;

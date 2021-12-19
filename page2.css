@@ -1,6 +1,28 @@
 #main2{
   background: linear-gradient(to bottom, #000, #000010,#000030);
 }
+.santa{
+  position: absolute;
+  background-size: cover;
+  animation: move3 ease-in-out 10s 1 normal;
+  filter: drop-shadow(0px 0px 30px #ffffff);
+}
+@keyframes move1 {
+    0% {opacity: 0; left: 0%; transform: translate(0,500px) rotate(-45deg); }
+    50% {opacity: 1; transform: translate(-50%,-50%) rotate(0) scale(2); }
+    100% {opacity: 0; left: 100%; transform: translate(0,500px) rotate(45deg); }
+}
+@keyframes move2 {
+    0% {opacity: 0; left: 0%; transform: translate(-50%,-50%) rotate(0); }
+    50% {opacity: 1; transform: translate(-50%,-50%) rotate(0); }
+    100% {opacity: 0; left: 100%; transform: translate(-50%,-50%) rotate(0); }
+}
+@keyframes move3 {
+    0% {opacity: 0; left: 0%; transform: translate(0,-500px) rotate(45deg); }
+    50% {opacity: 1; transform: translate(-50%,-50%) rotate(0); }
+    100% {opacity: 0; left: 100%; transform: translate(0,500px) scale(1.5) rotate(45deg); }
+}
+
 .star{
   position: absolute;
   background: url("images/star.png");
