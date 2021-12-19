@@ -16,7 +16,6 @@ body{
   transition-duration: 1s;
   transition-timing-function: ease-in;
   z-index: 100;
-  overflow: hidden;
 }
 #button{
   position: fixed;
