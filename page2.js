@@ -36,9 +36,10 @@ function add_santa(dur){
     "background-image": 'url("images/santa_'+dir+'.png")',
     "width": (window.innerWidth*size)+"px",
     "height":(window.innerWidth*size*234/626)+"px",
-    "animation-name":"move"+random(1,3),
+    "animation-name":"move"+random(1,4),
     "animation-duration": dur+"s",
-    "animation-direction": dir
+    "animation-direction": dir,
+    "z-index":size
   });
 }
 
