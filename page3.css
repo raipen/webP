@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 #main0{
   background: linear-gradient(to right,#be4825 50%, #cf6f28 50%);
   background-size: 50px 100%;
@@ -26,7 +26,7 @@
 }
 .contain3>span{
   color: #fff;
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
 }
 .contain1::before{
   content:"Merry";
