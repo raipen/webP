@@ -14,7 +14,7 @@
 
 ### 3.1. 개발구조
 
-   세 가지 장면을 표시할 div 태그의 id를 각각 "main1, main2, main0"로 구성하였고, 각 장면에서 쓰이는 CSS와 javascript는 "page1~3.css, page1~3.js"에 저장되어 있으며, 전체적인 CSS와 js는 “main.css, change_button.js"에 저장되어 있다.
+   세 가지 장면을 표시할 div 태그의 id를 각각 "main1, main2, main0"로 구성하였고, 각 장면에서 쓰이는 CSS와 javascript는 "page1\~3.css, page1\~3.js"에 저장되어 있으며, 전체적인 CSS와 js는 “main.css, change_button.js"에 저장되어 있다.
 
 각 장면에 대한 js는 크게 init_main과 loop_main으로 이루어져 있으며 init_main은 웹페이지가 처음 로딩될 때, 실행되며, loop_main은 해당 장면이 선택되었을 때 실행된다.
 
